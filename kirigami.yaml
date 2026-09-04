@@ -1,0 +1,20 @@
+kirigami:
+  project:     Kirigami Default Template
+  baseurl:     https://php-kirigami.github.io/template-default/
+  banner:      banner.txt
+  root:        src
+
+
+prepros:
+  before: _layouts/header.php
+  after: _layouts/footer.php
+
+
+tasks:
+  - name: js-core
+    type: esbuild
+    entry: scripts/kirigami.core.js
+
+  - name: css-core
+    type: sass
+    entry: styles/kirigami.core.scss
