@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["file:///C:/projects/kirigami/template-default/src/styles/kirigami.core.scss"],"names":[],"mappings":"AAEA,EACC,SACA,SACA","sourcesContent":["@forward \"kirigami.conf\";\r\n\r\n* {\r\n\tborder: 0;\r\n\tmargin: 0;\r\n\tbox-sizing: border-box;\r\n}"]}
+{"version":3,"sourceRoot":"","sources":["file:///C:/projects/kirigami/template-default/src/styles/kirigami.core.scss"],"names":[],"mappings":"AAEA,EACC,SACA,SACA","sourcesContent":["@use \"kirigami.conf\" as *;\r\n\r\n* {\r\n\tborder: 0;\r\n\tmargin: 0;\r\n\tbox-sizing: border-box;\r\n}"]}
