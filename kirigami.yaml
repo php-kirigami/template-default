@@ -1,20 +1,35 @@
+# yaml-language-server: $schema=https://cdn.jsdelivr.net/gh/php-kirigami/kirigami@main/packages/kirigami/kirigami.schema.json
+
 kirigami:
-  project:     Kirigami Default Template
-  baseurl:     https://php-kirigami.github.io/template-default/
-  banner:      banner.txt
-  root:        src
+  project:  Kirigami Site
+  baseurl:  https://example.github.io/kirigami-site
+  root:     src
+  banner:   banner.txt
+
+  # Any other key here is free-form project data: it becomes a PHP variable of
+  # the same name on every page and in the header / footer includes.
+  author:      Your Name
+  email:       you@example.com
+  description: A static site built with Kirigami.
+  tagline:     Built with Kirigami.
 
 
 prepros:
-  before: _layouts/header.php
-  after: _layouts/footer.php
+  before: _layouts/header.php   # prepended to every page
+  after:  _layouts/footer.php   # appended to every page
+  format: true
+  includes: [_lib/functions.php] # register custom tags / shortcodes / hooks here
+
+
+sass:
+  style: expanded
 
 
 tasks:
-  - name: js-core
-    type: esbuild
-    entry: scripts/kirigami.core.js
-
-  - name: css-core
-    type: sass
+  - name:  css-core
+    type:  sass
     entry: styles/kirigami.core.scss
+
+  - name:  js-core
+    type:  esbuild
+    entry: scripts/kirigami.core.js

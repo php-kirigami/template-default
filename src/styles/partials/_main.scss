@@ -1,0 +1,247 @@
+// This site's styles, on top of the tokens + reset from `conf`.
+
+@use "@kirigami/canva/utils" as *;
+
+// ── Layout primitives ──────────────────────────────────────────────
+.wrap {
+    width: min(100% - 2.5rem, 64rem);
+    margin-inline: auto;
+}
+
+.section { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+main { flex: 1; }
+
+h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem; }
+h3 { font-size: 1.1rem; }
+
+a { color: var(--accent); text-underline-offset: 2px; }
+
+code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+}
+
+pre {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.15rem;
+    overflow-x: auto;
+
+    code { background: none; border: 0; padding: 0; }
+}
+
+.skip-link {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transform: translateY(-150%);
+    transition: transform 0.15s;
+
+    &:focus-visible { transform: none; }
+}
+
+// ── Header + nav ───────────────────────────────────────────────────
+.site-header {
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-height: 3.75rem;
+}
+
+.brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: auto;
+}
+
+.site-nav ul {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+}
+
+.site-nav a {
+    color: var(--ink-muted);
+    text-decoration: none;
+
+    &:hover { color: var(--ink); }
+    &[aria-current="page"] { color: var(--accent); }
+}
+
+.theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--ink);
+    cursor: pointer;
+
+    .theme-toggle__sun { display: none; }
+}
+
+:root:not([data-theme="light"]) .theme-toggle {
+    @media (prefers-color-scheme: dark) {
+        .theme-toggle__moon { display: none; }
+        .theme-toggle__sun  { display: block; }
+    }
+}
+:root[data-theme="dark"] .theme-toggle {
+    .theme-toggle__moon { display: none; }
+    .theme-toggle__sun  { display: block; }
+}
+
+.nav-toggle { display: none; }
+
+// ── Buttons ────────────────────────────────────────────────────────
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover { filter: brightness(1.06); }
+
+    &--ghost {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid var(--border);
+    }
+}
+
+// ── Home ───────────────────────────────────────────────────────────
+.hero {
+    padding-block: clamp(3rem, 9vw, 6rem);
+
+    .lead { margin-block: 1rem 1.5rem; }
+    .btn + .btn { margin-left: 0.5rem; }
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: var(--ink-muted);
+    max-width: 42ch;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    margin-top: 1.5rem;
+}
+
+.card {
+    padding: 1.25rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    h3 { margin-bottom: 0.4rem; }
+    p { color: var(--ink-muted); }
+    code { font-size: 0.82em; }
+}
+
+// ── Prose (Markdown output) ────────────────────────────────────────
+.prose {
+    max-width: 44rem;
+
+    > * + * { margin-top: 1rem; }
+    h2 { margin-top: 2rem; }
+    ul, ol { padding-left: 1.4rem; }
+    li + li { margin-top: 0.3rem; }
+}
+
+// ── Footer ─────────────────────────────────────────────────────────
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding-block: 1.5rem;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+}
+
+.site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+// ── Reveal-on-scroll ───────────────────────────────────────────────
+.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s, transform 0.5s;
+
+    &.is-in { opacity: 1; transform: none; }
+}
+
+// ── Mobile ─────────────────────────────────────────────────────────
+@media (max-width: 40rem) {
+    .nav-toggle {
+        display: grid;
+        place-items: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface-2);
+        cursor: pointer;
+
+        span, span::before, span::after {
+            content: "";
+            display: block;
+            width: 1rem;
+            height: 2px;
+            background: var(--ink);
+        }
+        span { position: relative; }
+        span::before { position: absolute; top: -5px; }
+        span::after  { position: absolute; top: 5px; }
+    }
+
+    .site-nav {
+        position: absolute;
+        inset: 100% 0 auto 0;
+        background: var(--surface-2);
+        border-bottom: 1px solid var(--border);
+        display: none;
+
+        &[data-open] { display: block; }
+
+        ul { flex-direction: column; padding: 1rem 1.25rem; }
+    }
+}

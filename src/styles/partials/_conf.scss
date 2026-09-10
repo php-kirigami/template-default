@@ -1,0 +1,48 @@
+// Design tokens. Every value here overrides a `@kirigami/canva` default and
+// cascades to :root as a CSS custom property (--bg, --accent, …).
+// Full list of knobs: node_modules/@kirigami/canva/dist/styles/conf.scss
+
+@forward "@kirigami/canva/conf" with (
+
+    // ── Light palette — green ────────────────────────────────────
+    $bg:              #f5f8f6,
+    $surface:         #e7f0ea,
+    $surface-2:       #ffffff,
+    $border:          #d2e1d7,
+    $ink:             #263b30,
+    $ink-muted:       #67796e,
+    $accent:          #c08a2e,
+    $accent-soft:     #f3e6cc,
+    $logo-ink:        #263b30,
+    $logo-fold-light: #edf5ef,
+    $logo-fold-mid:   #d8eadd,
+
+    // ── Dark palette ─────────────────────────────────────────────
+    // `$dark` as a map = start from canva's built-in dark palette and override
+    // only these keys. `$theme: both` = follow the OS, but let
+    // <html data-theme="…"> force either way (the header sets it from
+    // localStorage before first paint).
+    $theme: both,
+    $dark: (
+        "bg":              #141c17,
+        "surface":         #1e2a22,
+        "surface-2":       #18211c,
+        "border":          #324438,
+        "ink":             #e9f2ec,
+        "ink-muted":       #8fa598,
+        "accent":          #e3ac4e,
+        "accent-soft":     #3a2e18,
+        "logo-ink":        #e9f2ec,
+        "logo-fold-light": #2c3d33,
+        "logo-fold-mid":   #223129,
+    ),
+
+    // ── Type ─────────────────────────────────────────────────────
+    $font-base:    18,
+    $font-body:    "Roboto Flex",
+    $font-heading: "Quicksand",
+    $fonts: (
+        "Roboto Flex": "assets/fonts/roboto-flex.woff2",
+        "Quicksand":   "assets/fonts/quicksand.woff2",
+    ),
+);

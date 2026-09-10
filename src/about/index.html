@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            (function(){var e=document.documentElement;e.classList.add("js");try{var t=localStorage.getItem("kirigami-theme");if(t==="dark"||t==="light")e.setAttribute("data-theme",t)}catch(x){}})();
+        </script>
+        <link rel="stylesheet" href="../styles/kirigami.core.min.css?1789067353">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About — Kirigami Site</title>
+        <meta name="description" content="What this starter ships and how to make it your own.">
+        <meta name="author" content="Your Name">
+        <link rel="canonical" href="https://example.github.io/kirigami-site/about/">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Kirigami Site">
+        <meta property="og:title" content="About">
+        <meta property="og:description" content="What this starter ships and how to make it your own.">
+        <meta property="og:url" content="https://example.github.io/kirigami-site/about/">
+    </head>
+    <body class="page-about">
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <div class="wrap site-header__inner">
+                <a class="brand" href="../">Kirigami Site</a>
+                <nav class="site-nav" id="site-nav" aria-label="Primary">
+                    <ul>
+                        <li><a href="../">Home</a></li>
+                        <li><a href="../about/" aria-current="page">About</a></li>
+                    </ul>
+                </nav>
+                <button class="theme-toggle" type="button" data-theme-toggle="" aria-label="Toggle dark mode">
+                    <svg viewbox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                        <path class="theme-toggle__moon" fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36A5.5 5.5 0 0 1 12.36 3.1 9.6 9.6 0 0 0 12 3Z"></path>
+                        <g class="theme-toggle__sun" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+                        </g>
+                    </svg>
+                </button>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle menu"><span></span></button>
+            </div>
+        </header>
+        <main id="main">
+            <section class="section wrap prose">
+                <h1>About</h1>
+                <p class="lead">What this starter ships and how to make it your own.</p>
+                <p>This is the <strong>default Kirigami starter</strong> — the template <code>kiri create</code> uses when you don&apos;t name one. It&apos;s deliberately small: two pages, one layout, a themeable stylesheet and a few lines of progressive-enhancement JavaScript.</p>
+                <h2 id="make-it-yours">Make it yours</h2>
+                <ul>
+                    <li><strong><code>kirigami.yaml</code></strong> — set <code>project</code>, <code>baseurl</code>, <code>author</code>, <code>description</code>, <code>tagline</code>. Every key under <code>kirigami:</code> is a PHP variable on every page.</li>
+                    <li><strong><code>src/styles/partials/_conf.scss</code></strong> — <code>@forward</code>s <code>@kirigami/canva/conf</code>, so every design token (palette, dark mode, fonts) is one override away.</li>
+                    <li><strong>Add a page</strong> — a new <code>src/&lt;path&gt;/_index.php</code> becomes <code>&lt;path&gt;/index.html</code>. <code>sitemap.xml</code> and <code>robots.txt</code> are generated from <code>baseurl</code>.</li>
+                    <li><strong>Trim the examples</strong> — the <code>&lt;year&gt;</code> tag and <code>{% lead %}</code> shortcode in <code>src/_lib/functions.php</code> are just there to show the extension points.</li>
+                </ul>
+                <h2 id="deploy">Deploy</h2>
+                <p><code>npx kiri export</code> writes a static site into <code>dist/</code>. Point any static host at it. A GitHub Pages workflow will ship with a later Kirigami release.</p>
+                <p><a href="../">← Back home</a></p>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="wrap site-footer__inner">
+                <p>© 2026 Your Name</p>
+                <p>Built with <a href="https://github.com/php-kirigami/kirigami">Kirigami</a></p>
+            </div>
+        </footer>
+        <script>
+            document.querySelectorAll("pre>code").forEach(function(c){if(c.children.length)return;var L=c.textContent.replace(/^\n+/,"").replace(/\s+$/,"").split("\n"),n=1/0;L.forEach(function(l){if(l.trim())n=Math.min(n,l.match(/^\s*/)[0].length)});if(n&&n<1/0)c.textContent=L.map(function(l){return l.slice(n)}).join("\n")});
+        </script>
+        <script src="../scripts/kirigami.core.min.js?1789067353"></script>
+    </body>
+</html>

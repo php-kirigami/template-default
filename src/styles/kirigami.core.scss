@@ -1,7 +1,8 @@
-@use "kirigami.conf" as *;
+// Entry compiled by the `css-core` sass task → styles/kirigami.core.min.css
+//
+// `conf` must come first: it forwards @kirigami/canva/conf, which emits the
+// @font-face rules, the :root custom properties (--bg, --ink, --accent, …) and
+// the base reset. `main` is this site's own styles on top.
 
-* {
-	border: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
+@use "partials/conf";
+@use "partials/main";
