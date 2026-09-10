@@ -1,8 +1,23 @@
+<div align="center">
+
+<img src="https://zmotrin.github.io/assets/kirigami/kirigami-logo-universal.svg" alt="Kirigami" width="400" />
+
+---
+
 # Kirigami starter
 
-The default template for [Kirigami](https://github.com/php-kirigami/kirigami) —
-`kiri create` uses it when you don't name a template. PHP page templates compiled
-to dependency-free static HTML, no PHP install and no server.
+The default template for **[Kirigami](https://github.com/php-kirigami/kirigami)** —
+`kiri create` clones it when you don't name a template.
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![Node](https://img.shields.io/badge/node-%3E%3D24.0.0-brightgreen)](#develop)
+
+</div>
+
+---
+
+PHP page templates compiled to dependency-free static HTML — no PHP install, no
+server.
 
 ## Develop
 
