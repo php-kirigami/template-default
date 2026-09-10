@@ -14,6 +14,14 @@ kirigami:
   tagline:     Built with Kirigami.
 
 
+# SEO / social metadata. This block opts @kirigami/php-prepros' META class in;
+# an empty map is enough — <title>, description, Open Graph, Twitter Card,
+# canonical, favicon and apple-touch-icon are derived from the `kirigami:` keys
+# above and each page's PHPDOC. Tags the layout already hand-writes are skipped.
+# Drop favicon.ico / apple-touch-icon.png in src/ and they're picked up.
+meta: {}
+
+
 prepros:
   before: _layouts/header.php   # prepended to every page
   after:  _layouts/footer.php   # appended to every page
