@@ -10,6 +10,11 @@
 // inline guard that reads the same key before first paint.
 import "@kirigami/canva/theme";
 
+// Reveal on scroll: adds `is-in` to each [data-reveal] as it enters the
+// viewport. The CSS half (hide until `.is-in`, gated on `.js`) lives in
+// styles/partials/_main.scss.
+import "@kirigami/canva/reveal";
+
 const ready = (fn) =>
     document.readyState === 'loading'
         ? document.addEventListener('DOMContentLoaded', fn, { once: true })
@@ -23,22 +28,4 @@ ready(() => {
         const open = nav.toggleAttribute('data-open');
         navToggle.setAttribute('aria-expanded', String(open));
     });
-
-    // ── Reveal on scroll ──────────────────────────────────────────
-    const reveal = [...document.querySelectorAll('[data-reveal]')];
-    const show = (el) => el.classList.add('is-in');
-
-    if (reveal.length && 'IntersectionObserver' in window) {
-        const io = new IntersectionObserver((entries) => {
-            for (const e of entries) {
-                if (!e.isIntersecting) continue;
-                show(e.target);
-                io.unobserve(e.target);
-            }
-        }, { rootMargin: '0px 0px -10% 0px' });
-        reveal.forEach((el) => io.observe(el));
-        setTimeout(() => reveal.forEach(show), 1500); // safety net
-    } else {
-        reveal.forEach(show);
-    }
 });

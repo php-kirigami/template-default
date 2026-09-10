@@ -1,6 +1,7 @@
 // This site's styles, on top of the tokens + reset from `conf`.
 
 @use "@kirigami/canva/utils" as *;
+@use "@kirigami/canva/prose";   // → `.prose { … }` for Markdown output
 
 // ── Layout primitives ──────────────────────────────────────────────
 .wrap {
@@ -176,14 +177,9 @@ pre {
 }
 
 // ── Prose (Markdown output) ────────────────────────────────────────
-.prose {
-    max-width: 44rem;
-
-    > * + * { margin-top: 1rem; }
-    h2 { margin-top: 2rem; }
-    ul, ol { padding-left: 1.4rem; }
-    li + li { margin-top: 0.3rem; }
-}
+// Base typography for rendered Markdown comes from `@kirigami/canva/prose`
+// (`@use`'d above). Override a knob here if needed, e.g.:
+//   .prose { --prose-measure: 44rem; }
 
 // ── Footer ─────────────────────────────────────────────────────────
 .site-footer {
