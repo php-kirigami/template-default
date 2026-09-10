@@ -2,9 +2,13 @@
  * Bundled by the `js-core` esbuild task → scripts/kirigami.core.min.js
  *
  * Progressive enhancement only — the site works with JavaScript disabled.
- * Dependency-free on purpose. `@kirigami/canva/theme` ships this same
- * theme-toggle contract as an import if you'd rather not maintain it here.
  */
+
+// Theme toggle: wires every [data-theme-toggle] control, persists the choice
+// under `kirigami-theme`, keeps controls in sync (incl. with OS changes in
+// auto mode), and fires `canva:themechange` on window. The <head> has an
+// inline guard that reads the same key before first paint.
+import "@kirigami/canva/theme";
 
 const ready = (fn) =>
     document.readyState === 'loading'
@@ -12,39 +16,6 @@ const ready = (fn) =>
         : fn();
 
 ready(() => {
-    const root = document.documentElement;
-    const media = matchMedia('(prefers-color-scheme: dark)');
-
-    // ── Theme toggle ──────────────────────────────────────────────
-    // Persists under `kirigami-theme`; the <head> has an inline guard that
-    // reads the same key before first paint.
-    const stored = () => {
-        try { return localStorage.getItem('kirigami-theme') || 'auto'; }
-        catch { return 'auto'; }
-    };
-    const resolved = () => {
-        const forced = root.dataset.theme;
-        return forced === 'light' || forced === 'dark'
-            ? forced
-            : (media.matches ? 'dark' : 'light');
-    };
-    const setPref = (pref) => {
-        const forced = pref === 'light' || pref === 'dark';
-        try {
-            forced
-                ? localStorage.setItem('kirigami-theme', pref)
-                : localStorage.removeItem('kirigami-theme');
-        } catch {}
-        if (forced) root.dataset.theme = pref;
-        else delete root.dataset.theme;
-    };
-
-    document.querySelectorAll('[data-theme-toggle]').forEach((el) => {
-        el.addEventListener('click', () => {
-            setPref(resolved() === 'dark' ? 'light' : 'dark');
-        });
-    });
-
     // ── Mobile nav ────────────────────────────────────────────────
     const navToggle = document.querySelector('.nav-toggle');
     const nav = document.getElementById('site-nav');
