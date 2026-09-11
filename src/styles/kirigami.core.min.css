@@ -189,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-block: calc(var(--prose-flow) * 1.6);
   background: var(--border);
 }
-.prose code, .prose kbd, .prose samp, .prose pre {
+.prose code:not(.hljs), .prose kbd, .prose samp, .prose pre {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.9em;
 }
@@ -206,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
   overflow-x: auto;
 }
-.prose pre code {
+.prose pre code:not(.hljs) {
   padding: 0;
   background: none;
   box-shadow: none;
