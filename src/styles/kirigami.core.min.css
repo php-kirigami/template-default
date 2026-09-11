@@ -90,6 +90,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--scroll-top);
   font-size: var(--font-size);
+  scrollbar-color: var(--border) var(--surface-2);
+  scrollbar-width: thin;
 }
 html.is-busy, html.is-busy * {
   cursor: wait !important;
