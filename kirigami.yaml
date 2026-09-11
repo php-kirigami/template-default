@@ -19,7 +19,9 @@ kirigami:
 # canonical, favicon and apple-touch-icon are derived from the `kirigami:` keys
 # above and each page's PHPDOC. Tags the layout already hand-writes are skipped.
 # Drop favicon.ico / apple-touch-icon.png in src/ and they're picked up.
-meta: {}
+# Nest a `jsonld:` sub-block here too for schema.org JSON-LD — its own
+# independent opt-in (see php-prepros' README).
+seo: {}
 
 
 prepros:
