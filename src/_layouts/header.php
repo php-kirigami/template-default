@@ -6,17 +6,13 @@
  * $tagline, $description, …), every PHPDOC annotation of the page being rendered
  * ($title, $abstract, $section, …), plus $relroot (path back to the site root)
  * and $absurl (this page's absolute path).
+ *
+ * The <head> is filled in by Kirigami: the `seo:` block adds <title>, the
+ * description, Open Graph / Twitter tags, the canonical link and JSON-LD, and
+ * prepros.head adds the theme guard, the stylesheet and the script bundle.
  */
 
-$page_title = !empty($title) && $title !== $project
-    ? "{$title} — {$project}"
-    : "{$project} — {$tagline}";
-
-$meta_desc = trim($abstract ?? '') ?: trim($description ?? '');
-$section   = $section ?? '';
-
-$origin    = preg_replace('#^(https?://[^/]+).*#', '$1', $baseurl);
-$canonical = $origin . $absurl;
+$section = $section ?? '';
 
 // path (relative to the site root) => [label, section key]
 $nav = [
@@ -29,20 +25,6 @@ $nav = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title><?php echo str_htmlesc($page_title); ?></title>
-    <meta name="description" content="<?php echo str_htmlesc($meta_desc); ?>">
-    <meta name="author" content="<?php echo str_htmlesc($author); ?>">
-    <link rel="canonical" href="<?php echo str_htmlesc($canonical); ?>">
-
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="<?php echo str_htmlesc($project); ?>">
-    <meta property="og:title" content="<?php echo str_htmlesc($title ?? $project); ?>">
-    <meta property="og:description" content="<?php echo str_htmlesc($meta_desc); ?>">
-    <meta property="og:url" content="<?php echo str_htmlesc($canonical); ?>">
-
-    <?php /* Kirigami injects the theme guard, the stylesheet <link> and the
-             bundle <script> automatically (prepros.head). */ ?>
 </head>
 <body class="page-<?php echo str_htmlesc($section ?: 'home'); ?>">
     <a class="skip-link" href="#main">Skip to content</a>

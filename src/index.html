@@ -9,22 +9,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home — Kirigami Site</title>
         <meta name="description" content="A starter site built with Kirigami — PHP page templates compiled to dependency-free static HTML.">
-        <meta name="author" content="Your Name">
-        <link rel="canonical" href="https://example.github.io/kirigami-site/">
-        <meta property="og:type" content="website">
-        <meta property="og:site_name" content="Kirigami Site">
-        <meta property="og:title" content="Home">
-        <meta property="og:description" content="A starter site built with Kirigami — PHP page templates compiled to dependency-free static HTML.">
-        <meta property="og:url" content="https://example.github.io/kirigami-site/">
         <meta name="robots" content="index, follow">
         <meta name="language" content="en">
         <meta name="generator" content="Kirigami">
+        <meta name="author" content="Your Name">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Home — Kirigami Site">
         <meta name="twitter:description" content="A starter site built with Kirigami — PHP page templates compiled to dependency-free static HTML.">
+        <meta property="og:site_name" content="Kirigami Site">
         <meta property="og:locale" content="en">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Home — Kirigami Site">
+        <meta property="og:description" content="A starter site built with Kirigami — PHP page templates compiled to dependency-free static HTML.">
+        <meta property="og:url" content="https://example.github.io/kirigami-site/">
+        <link rel="canonical" href="https://example.github.io/kirigami-site/">
+        <link rel="author" type="text/plain" href="./humans.txt">
         <link rel="icon" type="image/x-icon" href="./favicon.ico">
         <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Organization",
+                        "@id": "https://example.github.io/kirigami-site/#organization",
+                        "name": "Kirigami Site",
+                        "url": "https://example.github.io/kirigami-site/",
+                        "description": "A static site built with Kirigami.",
+                        "email": "you@example.com"
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://example.github.io/kirigami-site/#website",
+                        "url": "https://example.github.io/kirigami-site/",
+                        "name": "Kirigami Site",
+                        "description": "A static site built with Kirigami.",
+                        "inLanguage": "en",
+                        "publisher": {
+                            "@id": "https://example.github.io/kirigami-site/#organization"
+                        }
+                    },
+                    {
+                        "@type": "WebPage",
+                        "@id": "https://example.github.io/kirigami-site/#webpage",
+                        "url": "https://example.github.io/kirigami-site/",
+                        "name": "Home",
+                        "isPartOf": {
+                            "@id": "https://example.github.io/kirigami-site/#website"
+                        },
+                        "about": {
+                            "@id": "https://example.github.io/kirigami-site/#organization"
+                        },
+                        "inLanguage": "en"
+                    }
+                ]
+            }
+        </script>
     </head>
     <body class="page-home">
         <a class="skip-link" href="#main">Skip to content</a>
@@ -67,7 +107,7 @@
                     </article>
                     <article class="card">
                         <h3><code>src/_layouts/</code></h3>
-                        <p><code>header.php</code> and <code>footer.php</code> wrap every page (set in <code>kirigami.yaml</code> under <code>prepros</code>).</p>
+                        <p><code>header.php</code> and <code>footer.php</code> wrap every page; <code>types/page.*.php</code> add a title and lead to pages with <code>@type page</code> (all set in <code>kirigami.yaml</code> under <code>prepros</code>).</p>
                     </article>
                     <article class="card">
                         <h3><code>src/_lib/functions.php</code></h3>
@@ -84,7 +124,7 @@
                 <div class="prose">
                     <pre><code class="language-shell">
                         npm install
-                        npx kiri watch      # rebuild on save, no server
+                        npx kiri serve      # build, then rebuild on save + local server with live reload
                         npx kiri build      # one-off dev build
                         npx kiri export     # production build into dist/
                     </code></pre>

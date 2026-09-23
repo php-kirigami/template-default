@@ -9,22 +9,83 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About — Kirigami Site</title>
         <meta name="description" content="What this starter ships and how to make it your own.">
-        <meta name="author" content="Your Name">
-        <link rel="canonical" href="https://example.github.io/kirigami-site/about/">
-        <meta property="og:type" content="website">
-        <meta property="og:site_name" content="Kirigami Site">
-        <meta property="og:title" content="About">
-        <meta property="og:description" content="What this starter ships and how to make it your own.">
-        <meta property="og:url" content="https://example.github.io/kirigami-site/about/">
         <meta name="robots" content="index, follow">
         <meta name="language" content="en">
         <meta name="generator" content="Kirigami">
+        <meta name="author" content="Your Name">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="About — Kirigami Site">
         <meta name="twitter:description" content="What this starter ships and how to make it your own.">
+        <meta property="og:site_name" content="Kirigami Site">
         <meta property="og:locale" content="en">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="About — Kirigami Site">
+        <meta property="og:description" content="What this starter ships and how to make it your own.">
+        <meta property="og:url" content="https://example.github.io/kirigami-site/about/">
+        <link rel="canonical" href="https://example.github.io/kirigami-site/about/">
+        <link rel="author" type="text/plain" href="../humans.txt">
         <link rel="icon" type="image/x-icon" href="../favicon.ico">
         <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Organization",
+                        "@id": "https://example.github.io/kirigami-site/#organization",
+                        "name": "Kirigami Site",
+                        "url": "https://example.github.io/kirigami-site/",
+                        "description": "A static site built with Kirigami.",
+                        "email": "you@example.com"
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://example.github.io/kirigami-site/#website",
+                        "url": "https://example.github.io/kirigami-site/",
+                        "name": "Kirigami Site",
+                        "description": "A static site built with Kirigami.",
+                        "inLanguage": "en",
+                        "publisher": {
+                            "@id": "https://example.github.io/kirigami-site/#organization"
+                        }
+                    },
+                    {
+                        "@type": "BreadcrumbList",
+                        "@id": "https://example.github.io/kirigami-site/about/#breadcrumb",
+                        "itemListElement": [
+                            {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "Home",
+                                "item": "https://example.github.io/kirigami-site/"
+                            },
+                            {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "About",
+                                "item": "https://example.github.io/kirigami-site/about/"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": "WebPage",
+                        "@id": "https://example.github.io/kirigami-site/about/#webpage",
+                        "url": "https://example.github.io/kirigami-site/about/",
+                        "name": "About",
+                        "isPartOf": {
+                            "@id": "https://example.github.io/kirigami-site/#website"
+                        },
+                        "about": {
+                            "@id": "https://example.github.io/kirigami-site/#organization"
+                        },
+                        "inLanguage": "en",
+                        "breadcrumb": {
+                            "@id": "https://example.github.io/kirigami-site/about/#breadcrumb"
+                        }
+                    }
+                ]
+            }
+        </script>
     </head>
     <body class="page-about">
         <a class="skip-link" href="#main">Skip to content</a>
@@ -50,21 +111,22 @@
             </div>
         </header>
         <main id="main">
-            <section class="section wrap prose">
+            <article class="section wrap prose">
                 <h1>About</h1>
                 <p class="lead">What this starter ships and how to make it your own.</p>
-                <p>This is the <strong>default Kirigami starter</strong> — the template <code>kiri create</code> uses when you don&apos;t name one. It&apos;s deliberately small: two pages, one layout, a themeable stylesheet and a few lines of progressive-enhancement JavaScript.</p>
+                <p>This is the <strong>default Kirigami starter</strong>, the template <code>kiri create</code> uses when you don&apos;t name one. It&apos;s deliberately small: two pages, one layout, one page type, a themeable stylesheet and a few lines of progressive-enhancement JavaScript.</p>
+                <p>This page only writes its text: <code>@type page</code> in its header wraps it in <code>_layouts/types/page.before.php</code> and <code>page.after.php</code> (declared under <code>prepros.types</code> in <code>kirigami.yaml</code>), which add the title, the lead and the link back home.</p>
                 <h2 id="make-it-yours">Make it yours</h2>
                 <ul>
-                    <li><strong><code>kirigami.yaml</code></strong> — set <code>project</code>, <code>baseurl</code>, <code>author</code>, <code>description</code>, <code>tagline</code>. Every key under <code>kirigami:</code> is a PHP variable on every page.</li>
-                    <li><strong><code>src/styles/partials/_conf.scss</code></strong> — <code>@forward</code>s <code>@kirigami/canva/conf</code>, so every design token (palette, dark mode, fonts) is one override away.</li>
-                    <li><strong>Add a page</strong> — a new <code>src/&lt;path&gt;/_index.php</code> becomes <code>&lt;path&gt;/index.html</code>. <code>sitemap.xml</code> and <code>robots.txt</code> are generated from <code>baseurl</code>.</li>
-                    <li><strong>Trim the examples</strong> — the <code>&lt;year&gt;</code> tag and <code>{% lead %}</code> shortcode in <code>src/_lib/functions.php</code> are just there to show the extension points.</li>
+                    <li><strong><code>kirigami.yaml</code></strong>: set <code>project</code>, <code>baseurl</code>, <code>author</code>, <code>description</code>, <code>tagline</code>. Every key under <code>kirigami:</code> is a PHP variable on every page.</li>
+                    <li><strong><code>src/styles/partials/_conf.scss</code></strong> <code>@forward</code>s <code>@kirigami/canva/conf</code>, so every design token (palette, dark mode, fonts) is one override away.</li>
+                    <li><strong>Add a page</strong>: a new <code>src/&lt;path&gt;/_index.php</code> becomes <code>&lt;path&gt;/index.html</code>. Give it <code>@type page</code> to reuse this layout. <code>sitemap.xml</code> and <code>robots.txt</code> are generated from <code>baseurl</code>.</li>
+                    <li><strong>Trim the examples</strong>: the <code>&lt;year&gt;</code> tag and the <code>lead</code> shortcode in <code>src/_lib/functions.php</code> are just there to show the extension points.</li>
                 </ul>
                 <h2 id="deploy">Deploy</h2>
-                <p><code>npx kiri export</code> writes a static site into <code>dist/</code>. Point any static host at it. A GitHub Pages workflow will ship with a later Kirigami release.</p>
+                <p><code>npx kiri export</code> writes a static site into <code>dist/</code>. The included <code>.github/workflows/page.yml</code> does it on every push to <code>main</code> and publishes the result to GitHub Pages (Settings → Pages → Source: GitHub Actions).</p>
                 <p><a href="../">← Back home</a></p>
-            </section>
+            </article>
         </main>
         <footer class="site-footer">
             <div class="wrap site-footer__inner">

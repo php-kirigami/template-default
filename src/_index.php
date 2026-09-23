@@ -26,7 +26,7 @@
         </article>
         <article class="card">
             <h3><code>src/_layouts/</code></h3>
-            <p><code>header.php</code> and <code>footer.php</code> wrap every page (set in <code>kirigami.yaml</code> under <code>prepros</code>).</p>
+            <p><code>header.php</code> and <code>footer.php</code> wrap every page; <code>types/page.*.php</code> add a title and lead to pages with <code>@type page</code> (all set in <code>kirigami.yaml</code> under <code>prepros</code>).</p>
         </article>
         <article class="card">
             <h3><code>src/_lib/functions.php</code></h3>
@@ -45,7 +45,7 @@
         <markdown>
         ```shell
         npm install
-        npx kiri watch      # rebuild on save, no server
+        npx kiri serve      # build, then rebuild on save + local server with live reload
         npx kiri build      # one-off dev build
         npx kiri export     # production build into dist/
         ```

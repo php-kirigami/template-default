@@ -14,13 +14,10 @@ kirigami:
   tagline:     Built with Kirigami.
 
 
-# SEO / social metadata. This block opts @kirigami/php-prepros' META class in;
-# an empty map is enough — <title>, description, Open Graph, Twitter Card,
-# canonical, favicon and apple-touch-icon are derived from the `kirigami:` keys
-# above and each page's PHPDOC. Tags the layout already hand-writes are skipped.
+# SEO: <title>, description, Open Graph, Twitter Card, canonical, favicon and a
+# schema.org JSON-LD graph, derived from the `kirigami:` keys above and each
+# page's PHPDOC. An empty map is enough; `jsonld: false` drops the JSON-LD.
 # Drop favicon.ico / apple-touch-icon.png in src/ and they're picked up.
-# Nest a `jsonld:` sub-block here too for schema.org JSON-LD — its own
-# independent opt-in (see php-prepros' README).
 seo: {}
 
 
@@ -29,6 +26,10 @@ prepros:
   after:  _layouts/footer.php   # appended to every page
   format: true
   includes: [_lib/functions.php] # register custom tags / shortcodes / hooks here
+  types:                        # a page opts in with @type <name>
+    page:                       # title + lead + prose body (see about/)
+      before: _layouts/types/page.before.php
+      after:  _layouts/types/page.after.php
 
 
 sass:
